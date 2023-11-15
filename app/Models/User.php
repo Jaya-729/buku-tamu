@@ -42,4 +42,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function PetugasCheckin(){
+        return $this->hasMany(Guest::class, 'petugas_checkin', 'id');
+        // model ini memiliki banyak model tamu
+    }
+
+    public function PetugasCheckout(){
+        return $this->hasMany(Guest::class, 'petugas_checkout', 'id');
+        // model ini memiliki banyak model tamu
+    }
+
+    // ini membuat relasi antar tabel dengan cara menggunakan hasMany dan belongsTo dimana hasmany artinya memiliki banyak data dari table tamu dan belongsTo artinya satu tamu dimiliki oleh satu petugas
 }
